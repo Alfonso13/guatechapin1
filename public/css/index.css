@@ -1,0 +1,53 @@
+#gallery  {
+	margin: 2em 0;
+	position: relative;
+}
+#gallery  div figure {
+	margin: 0;
+	padding: 0;
+}
+#gallery > div > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+#gallery > div > figure {
+	width: 35%;
+}
+#gallery > div > #description-gallery {
+	width: 25%;
+	padding: 9.2% 0;
+
+}
+#gallery > div {
+	overflow: hidden;
+}
+#gallery > div > #description-gallery *:not(button) {
+	color: #fff;
+}
+#gallery > div > #description-gallery h2 {
+	font-size: 4em;
+}
+#gallery > div > #description-gallery h3 {
+	font-weight: 300;
+}
+#gallery > div > #description-gallery button {
+	background: #fff;
+	border: none;
+	color: #E91E63;
+	cursor: pointer;
+	font-weight: 600;
+	margin-top: 1em;
+	padding: 1em;
+}
+#gallery #description-gallery {
+	background: #E91E63;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	/* position: absolute;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 8% 4em; */
+}

@@ -1,0 +1,158 @@
+.image-responsive {
+	max-width: 100%;
+	display: inline-block;
+}
+.hidden {
+	display: none !important;
+}
+.inline-block {
+	display: inline-block;
+}
+.list-none {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.relative {
+	position: relative;
+}
+.no-underline {
+	text-decoration: none;
+}
+.no-margin {
+	margin: 0;
+}
+.no-padding {
+	padding: 0;
+}
+fieldset {
+	border: 0;
+}
+fieldset input, fieldset textarea {
+	outline: none;
+}
+.block {
+	display: block !important;
+}
+.anchor {
+	width: 100%;
+}
+.bold {
+	font-weight: bold !important;
+}
+.align-center {
+	text-align: center !important;
+}
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+}
+
+.container {
+	width: 90%;
+	display: inline-block;
+}
+.header section.first > div:first-child {
+	text-align: left;
+}
+.header section.first > div:last-child {
+	text-align: right;
+}
+.header section.first > div {
+	display: inline-block;
+	vertical-align: middle;
+	width: 49%;
+}
+.logo {
+	margin: 0;
+	padding: 0;
+}
+.logo div {
+	padding: 2em;
+	background: #E91E63;
+	border-radius: 100%;
+	display: inline-block;
+}
+.nav {
+	background: #E91E63;
+	margin-top: 0.5em;
+}	
+.nav ul {
+	text-align: left;
+}
+.nav ul li {
+	display: inline-block;
+	vertical-align: middle;
+}
+.nav ul li:last-child {
+	margin-left: 14%;
+}
+.nav ul li:last-child input {
+	background: #F8F8F8;
+	border-radius: 4px;
+	border: 0;
+	outline: none;
+	padding: 0.5em;
+}
+.nav ul li a {
+	color: #fff;
+	padding: 0.8em;
+	display: inline-block;
+	font-weight: 300;
+	font-size: 0.99em;
+}
+
+.container > footer {
+	background: #E0E0E0;
+	padding: 1em 0;
+}
+.container > footer > div {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1em 0;
+	width: 49%;
+}
+.container > footer > div:last-child {
+	border-left: 1px solid #8C8C8C;
+}
+
+.articles article figure {
+	margin: 0;
+	padding: 0;
+}
+.articles article {
+	display: inline-block;
+	width: 22%;
+	padding-bottom: 1em;
+	margin: 1em 3em;
+	border-bottom: 2px solid #AAA;
+}
+.articles article span {
+	font-weight: 300;
+	color: #999;
+	font-size: 1.3em;
+}
+.articles article button {
+	background: #E91E63;
+	border: 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 0.5em;
+}
+.articles article span, .collection .articles article button {
+	display: inline-block;
+	margin: 0.5em 1em 0 1em;
+}
+.articles article img {
+	max-width: 100%;
+}
+
+.item-menu-selected {
+	background: #fff;
+	color: #E91E63 !important;
+	border: 1px solid;
+}

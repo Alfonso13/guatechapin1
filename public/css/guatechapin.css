@@ -1,0 +1,16 @@
+#about {
+	margin-bottom: 3em;
+}
+#about article {
+	display: inline-block;
+	border-bottom: 2px solid #555;
+	padding: 2.5em 0;
+	width: 50%;
+}
+#about article p {
+	font-weight: 300;
+}
+#about article h2 {
+	color: #333;
+	font-size: 1.8em;
+}

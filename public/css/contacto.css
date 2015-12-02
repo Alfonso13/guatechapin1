@@ -1,0 +1,36 @@
+#contacto {
+	margin: 2em 0 10em 0;
+}
+#contacto h2 {
+	font-size: 1.5em;
+}
+#contacto h2:before, #contacto h2:after {
+	content: " - ";
+}
+#contacto #form-contact {
+	width: 35%;
+	display: inline-block;
+	text-align: left;
+}
+#contacto #form-contact label {
+	display: block;
+	color: #E91E63;
+	font-size: 0.95em;
+}
+#contacto #form-contact input, #contacto #form-contact textarea{
+	display: block;
+	width:100%;
+	padding: 0.8em;
+	background: #EDEDED;
+	border: none;
+}
+#contacto #form-contact textarea {
+	height: 100px;
+}
+#contacto #form-contact button {
+	background: #E91E63;
+	border: none;
+	color: #fff;
+	padding: 0.8em;
+	cursor: pointer;
+}

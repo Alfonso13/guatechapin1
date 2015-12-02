@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Donde Estamos</title>
+	<link rel="stylesheet" href="../css/globals.css" />
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="../lib/jQuery/jquery.js"></script>
+	<script src="../lib/GMaps/gmaps.js"></script>
+	<link rel="stylesheet" href="../css/dondeestamos.css" />
+</head>
+<body class="no-margin">
+	<div class="container">
+		<header class="header">
+			<section class="first">
+				<div>
+					<figure class="logo">
+						<div></div>
+						<figcaption>
+							<small>Orgullosos de lo nuestro!</small>
+						</figcaption>
+					</figure>
+				</div>
+				<div>
+					<ul class="no-margin no-padding list-none">
+						<li>
+							<div>
+								<button>COMPRAR</button>
+							</div>
+						</li>
+						<li>
+							<a href="#">LOGIN</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="second">
+				<nav class="nav">
+					<ul class="no-margin no-padding list-none">
+						<li>
+							<a href="../index.html" class="no-underline">INICIO</a>
+						</li>
+						<li>
+							<a href="guatechapin.html" class="no-underline">QUIÉNES SOMOS</a>
+						</li>
+						<li>
+							<a href="colecciones.html" class="no-underline">COLECCIONES</a>
+						</li>
+						<li>
+							<a href="catalogo.html" class="no-underline">CATÁLOGO</a>
+						</li>
+						<li>
+							<a href="dondeestamos.html" class="no-underline item-menu-selected">DÓNDE ESTAMOS</a>
+						</li>
+						<li>
+							<a href="contacto.html" class="no-underline">CONTACTO</a>
+						</li>
+						<li>
+							<a href="mas.html" class="no-underline">MÁS</a>
+						</li>
+						<li>
+							<form>
+								<input type="text" placeholder="Buscar..." />
+							</form>
+						</li>
+					</ul>
+				</nav>
+			</section>
+		</header>
+		<section id="donde">
+			<div id="container-information">
+				<h2 class="no-margin">TELÉFONOS</h2>
+				<h3 class="no-margin">GUATEMALA</h3>
+				<ul class="list-none">
+					<li>
+						<h3>(502) 5694 9888</h3>
+					</li>
+					<li>
+						<h3>(502) 4214 0366</h3>
+					</li>
+					<li>
+						<h3>(502) 5421 5581</h3>
+					</li>
+				</ul>
+			</div>
+			<div id="container-email">
+				<h2>CORREOS</h2>
+				<ul class="list-none">
+					<li>
+						info@guatechapin.com.gt
+					</li>
+					<li>
+						ventas@guatechapin.com.gt
+					</li>
+				</ul>
+			</div>
+			<div id="container-map0">
+				<h2>UBICACIÓN</h2>
+				<div id="container-map">
+					<div id="map" style="position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);height: 400px;">
+					</div>
+					<h3>DIRECCIÓN</h3>
+					<p>20 Calle A 16-26 Zona 6 Proyecto 4-4, Ciudad de Guatemala, Guatemala, C.A.</p>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div>
+				<h3 class="no-margin">CONTACTO</h3>
+				<p class="no-margin">20 Calle A 16-26 Zona 6 Proyecto 4-4, Ciudad de Guatemala, Guatemala, C.A.</p>
+			</div>
+			<div>
+				<h3 class="no-margin">SÍGUENOS EN:</h3>
+				<ul class="list-none">
+					<li>
+						Facebook
+					</li>
+					<li>
+						Twitter
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<script>
+		$(document).on('ready', function init() {
+			var map = new GMaps({
+				div: '#map',
+				lat: 14.667124,
+  				lng: -90.490199
+			});
+			map.addMarker({
+				lat: 14.667124,
+  				lng: -90.490199,
+  				title: "Guatechapin"
+			});
+		});
+	</script>
+</body>
+</html>
