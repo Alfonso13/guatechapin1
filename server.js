@@ -4,13 +4,10 @@ var app = express();
 
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({
-	extended:true,
-	limit:'30mb'
+	extended:true
 }));
 
-app.use(bodyParser.json({
-	limit:'30mb'
-}));
+app.use(bodyParser.json({}));
 
 app.get('/', function init(req, res) {
 	
