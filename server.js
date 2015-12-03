@@ -121,7 +121,13 @@ router.get('/auth/:user', function auth(req, res) {
 				});
 			}
 			else {
-				res.status(200).json({});
+				Person.findOne({usuario: response.id}, function callback(error, person) {
+					if(!error) {
+						res.status(200).json({
+							person: person
+						});
+					}
+				});
 			}
 			
 		}
