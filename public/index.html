@@ -5,13 +5,56 @@
 	<title>Inicio</title>
 	<link rel="stylesheet" href="css/globals.css" />
 	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/modals.css">
 	<link 
 		href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100,500,500italic,900italic,900,700' 
 		rel='stylesheet' 
 		type='text/css' />
 	<script src="lib/jQuery/jquery.js"></script>
+	<script src="lib/jQuery/serializeObject.js"></script>
+	<script src="lib/jQuery/cookie.js"></script>
 </head>
 <body class="no-margin">
+	<section class="modal no-visibility" id="ModalLogin" >
+		<div class="modal-container relative">
+			<a class="close">X</a>
+			<div id="titulo_cotizacion">
+				<h3 class="no-margin">AUTENTICACIÓN</h3>
+			</div>
+			<div id="cotizacion" class="align-center">
+				<form id="form-auth" name="form-auth">
+					<div id="container-form-service">
+						<fieldset class="block">
+							<label>Usuario</label>
+							<input type="text" name="nombre" required />
+						</fieldset>
+						<fieldset class="block">
+							<label>Contraseña</label>
+							<input type="password" name="password" required />
+						</fieldset>
+					</div>
+					<div class="align-center no-margin container-buttons">
+						<button id="btn-auth">ENTRAR</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<style>
+
+		#ModalLogin {
+			padding: 10% 36% !important;
+		}
+		#ModalLogin .modal-container {
+			height: 380px !important;
+		}
+		#ModalLogin fieldset {
+			width: 100% !important; 
+		}
+		#ModalLogin #btn-auth {
+			cursor: pointer;
+		}
+	</style>
 	<div class="container">
 		<header class="header">
 			<section class="first">
@@ -31,7 +74,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#">LOGIN</a>
+							<button id="btn-login">LOGIN</button>
 						</li>
 					</ul>
 				</div>

@@ -33,21 +33,24 @@
 #gallery > div > #description-gallery button {
 	background: #fff;
 	border: none;
-	color: #E91E63;
+	color: #03A9F4;
 	cursor: pointer;
 	font-weight: 600;
 	margin-top: 1em;
 	padding: 1em;
 }
 #gallery #description-gallery {
-	background: #E91E63;
+	background: #03A9F4;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	/* position: absolute;
-	height: 100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 8% 4em; */
+}
+#btn-login {
+	background: transparent;
+	border: none;
+	background:#03A9F4;
+	cursor: pointer;
+	color: #fff;
+	padding: 0.5em;
+	outline: none;
 }

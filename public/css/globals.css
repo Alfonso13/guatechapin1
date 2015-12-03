@@ -73,12 +73,12 @@ body {
 }
 .logo div {
 	padding: 2em;
-	background: #E91E63;
+	background: #03A9F4;
 	border-radius: 100%;
 	display: inline-block;
 }
 .nav {
-	background: #E91E63;
+	background: #03A9F4;
 	margin-top: 0.5em;
 }	
 .nav ul {
@@ -137,7 +137,7 @@ body {
 	font-size: 1.3em;
 }
 .articles article button {
-	background: #E91E63;
+	background: #03A9F4;
 	border: 0;
 	color: #fff;
 	cursor: pointer;
@@ -153,6 +153,14 @@ body {
 
 .item-menu-selected {
 	background: #fff;
-	color: #E91E63 !important;
+	color: #03A9F4 !important;
 	border: 1px solid;
+}
+.no-visibility {
+	opacity: 0;
+	visibility: hidden;
+}
+.visibility {
+  	opacity: 1;
+  	visibility: visible;
 }
