@@ -212,32 +212,33 @@ router.get('/buy/:information', function buy(req, res) {
 
 	var newBill = new Bill(bill);
 
+	var counter = 0;
 	newBill.save(function e(error){
 		if(!error) {
 			Bill.find({}).sort({_id: 'desc'}).limit(1).exec(function a(error, docs){
 				if(!error) {
-					var counter = 0;
 					var detail_bill = [];
-					products.forEach(function each(product, index) {
-						counter += 1;
-						detail_bill.push('<tr><td style="padding:10px 16px;">'+ product.product.nombre +'</td> <td style="padding:10px 16px;">'+ product.product.cantidad +'</td><td style="padding:10px 16px;">Q. ' + product.product.precio + '</td><td style="padding:10px 16px;">Q. '+ (Number(product.product.precio) * Number(product.product.cantidad)) +'</td></tr>');
+					var details = [];
+					for(var i = 0 ; i < products.length ; i++) {
+						detail_bill.push('<tr><td style="padding:10px 16px;">'+ products[i].product.nombre +'</td> <td style="padding:10px 16px;">'+ products[i].product.cantidad +'</td><td style="padding:10px 16px;">Q. ' + products[i].product.precio + '</td><td style="padding:10px 16px;">Q. '+ (Number(products[i].product.precio) * Number(products[i].product.cantidad)) +'</td></tr>');
 						var newDetailBill = new DetailBill({
 							factura: docs[0]._id ,
-							articulo: product.product._id,
-							cantidad: product.product.cantidad,
-							precioVenta: product.product.precio
+							articulo: products[i].product._id,
+							cantidad: products[i].product.cantidad,
+							precioVenta: products[i].product.precio
 						});
-						newDetailBill.save(function save(error) {
+						details.push(newDetailBill);
+					}
+					details.forEach(function each(detail, index) {
+						detail.save(function save(error) {
 							if(!error) {
-								Article.findOne({_id: product.product._id}, function search(error, product_search){
+								Article.findOne({_id: detail.articulo}, function find(error, single_product) {
 									if(!error) {
-										var stock = product_search.existencia;
-										var actual_stock = product_search.existencia - product.product.cantidad;
-
-										Article.findOneAndUpdate({_id: product.product._id}, {$set: {existencia: actual_stock}}, {}, function c(error) {
+										var actual_stock = single_product.existencia - detail.cantidad;
+										Article.findOneAndUpdate({_id: detail.articulo}, {$set: {existencia: actual_stock}}, function c(error) {
 											if(!error) {
-												if(counter == products.length) {
-													var html_email = '<div style="background:#eee;padding:16px;text-align:left;font-family:;"><h1 style="color:#03A9F4;">GUATECHAPIN</h1> <h3 style="font-weight:300;">Guatechapin te felicita por haber confiado en nosotros al adquirir nuestros productos de alta calidad.  Desde ahora eres parte de la familia de Guatechapin.</h3> <hr> <div> <h3 style="font-size:18px;color:#333;">INFORMACIÓN DE FACTURACIÓN</h3> <div style="border-left:2px solid;padding-left:16px;"> <h2 style="font-size:16px;font-weight:300;">FACTURA No. <span>21</span></h2><h2 style="font-size:16px;font-weight:300;">NOMBRE: <span>'+ name +'</span></h2><h2 style="font-size:16px;font-weight:300;">FECHA: <span>5/12/2015</span></h2> <h2 style="font-size:16px;font-weight:300;">TOTAL: <span>Q. 100</span></h2> </div> <h3 style="font-weight:700;color:#444;">DETALLE</h3> <table style="text-align:center;"> <thead> <tr> <th style="padding:10px 16px;">Producto</th> <th style="padding:10px 16px;">Cantidad</th> <th style="padding:10px 16px;">Precio</th> <th style="padding:10px 16px;">Subtotal</th> </tr> </thead> <tbody> ' + detail_bill.join("") + '</tbody> </table> </div> </div>';
+												if((index+1)  == details.length) {
+													var html_email = '<div style="background:#eee;padding:16px;text-align:left;font-family:;"><h1 style="color:#03A9F4;">GUATECHAPIN</h1> <h3 style="font-weight:300;">Guatechapin te felicita por haber confiado en nosotros al adquirir nuestros productos de alta calidad.  Desde ahora eres parte de la familia de Guatechapin.</h3> <hr> <div> <h3 style="font-size:18px;color:#333;">INFORMACIÓN DE FACTURACIÓN</h3> <div style="border-left:2px solid;padding-left:16px;"> <h2 style="font-size:16px;font-weight:300;">FACTURA No. <span>'+ docs[0]._id +'</span></h2><h2 style="font-size:16px;font-weight:300;">NOMBRE: <span>'+ name +'</span></h2><h2 style="font-size:16px;font-weight:300;">FECHA: <span>'+ date +'</span></h2> <h2 style="font-size:16px;font-weight:300;">TOTAL: <span>Q. 100</span></h2> </div> <h3 style="font-weight:700;color:#444;">DETALLE</h3> <table style="text-align:center;"> <thead> <tr> <th style="padding:10px 16px;">Producto</th> <th style="padding:10px 16px;">Cantidad</th> <th style="padding:10px 16px;">Precio</th> <th style="padding:10px 16px;">Subtotal</th> </tr> </thead> <tbody> ' + detail_bill.join("") + '</tbody> </table> </div> </div>';
 													var data = {
 														from: "Guatechapin <mailgun@sandbox735f530aa31d40e9b346877f11a9b08c.mailgun.org>",
 														to: email, 
@@ -246,14 +247,10 @@ router.get('/buy/:information', function buy(req, res) {
 													};
 													mailgun.messages().send(data, function l(error, body) {
 														if(!error) {
-															res.json({
-																message: 'success'
-															});
+															res.status(200).json({message: 'success'});
 														}
 														else {
-															res.json({
-																message: 'error'
-															});
+															res.status(200).json({message: 'error'});
 														}
 													});
 												}

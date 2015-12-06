@@ -173,9 +173,9 @@ function init() {
 			$("#tejidos .articles").html(html_tejidos.join(""));
 			$("#cueros .articles").html(html_cueros.join(""));
 			$("#mostacilla .articles").html(html_mostacilla.join(""));
-			$("#bolsos .articles").html(html_mostacilla.join(""));
-			$("#carteras .articles").html(html_mostacilla.join(""));
-			$("#ropas .articles").html(html_mostacilla.join(""));
+			$("#bolsos .articles").html(html_bolsos.join(""));
+			$("#carteras .articles").html(html_carteras.join(""));
+			$("#ropas .articles").html(html_ropas.join(""));
 		}
 		else {
 
