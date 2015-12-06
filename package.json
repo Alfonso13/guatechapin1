@@ -1,0 +1,22 @@
+{
+  "name": "TypicalClothes",
+  "description": "Aplicación de venta de ropa",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "galileo"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "jade": "^1.11.0",
+    "mailgun-js": "^0.7.7",
+    "mongoose": "^4.2.9",
+    "mongoose-auto-increment": "^5.0.1"
+  }
+}
