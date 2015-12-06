@@ -6,14 +6,14 @@
 	margin: 0;
 	padding: 0;
 }
-#gallery > div > * {
+#gallery > div > article > * {
 	display: inline-block;
 	vertical-align: middle;
 }
-#gallery > div > figure {
+#gallery > div > article figure {
 	width: 35%;
 }
-#gallery > div > #description-gallery {
+#gallery > div > article #description-gallery {
 	width: 25%;
 	padding: 9.2% 0;
 
@@ -21,16 +21,16 @@
 #gallery > div {
 	overflow: hidden;
 }
-#gallery > div > #description-gallery *:not(button) {
+#gallery > div article #description-gallery *:not(button) {
 	color: #fff;
 }
-#gallery > div > #description-gallery h2 {
+#gallery > div > article #description-gallery h2 {
 	font-size: 4em;
 }
-#gallery > div > #description-gallery h3 {
+#gallery > div > article #description-gallery h3 {
 	font-weight: 300;
 }
-#gallery > div > #description-gallery button {
+#gallery > div > article #description-gallery button {
 	background: #fff;
 	border: none;
 	color: #03A9F4;
@@ -45,12 +45,14 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-#btn-login {
-	background: transparent;
-	border: none;
-	background:#03A9F4;
-	cursor: pointer;
-	color: #fff;
-	padding: 0.5em;
-	outline: none;
+#clothes h2 {
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+	color: #696969;
+}
+#clothes article div > div{
+	margin-top: 1em;
+}
+#clothes article div span {
+	margin: 0;
 }

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Carrito de compras</title>
+	<link rel="stylesheet" href="../css/globals.css" />
+	<link rel="stylesheet" href="../css/modals.css" />
+	<link rel="stylesheet" href="../css/carrito.css" />
+	<link 
+		href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100,500,500italic,900italic,900,700' 
+		rel='stylesheet' 
+		type='text/css' />
+	<script src="../lib/jQuery/jquery.js"></script>
+	<script src="../lib/jQuery/serializeObject.js"></script>
+	<script src="../lib/jQuery/cookie.js"></script>
+</head>
+<body class="no-margin">
+	<section class="modal no-visibility" id="ModalPago" >
+		<div class="modal-container relative">
+			<div id="cotizacion" class="align-center">
+				<h3>Guatechapin te felicita porque has confiado en nuestros productos</h3>
+				<p>La factura de pago se ha enviado a tu correo electrónico</p>
+				<button id="btn-end-pay">SALIR</button>
+			</div>
+		</div>
+	</section>
+	<section class="modal no-visibility" id="ModalLogin" >
+		<div class="modal-container relative">
+			<a class="close">X</a>
+			<div id="titulo_cotizacion">
+				<h3 class="no-margin">AUTENTICACIÓN</h3>
+			</div>
+			<div id="cotizacion" class="align-center">
+				<form id="form-auth" name="form-auth">
+					<div id="container-form-service">
+						<fieldset class="block">
+							<label>Usuario</label>
+							<input type="text" name="nombre" required />
+						</fieldset>
+						<fieldset class="block">
+							<label>Contraseña</label>
+							<input type="password" name="password" required />
+						</fieldset>
+					</div>
+					<div class="align-center no-margin container-buttons">
+						<button id="btn-auth">ENTRAR</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<header class="header">
+			<section class="first">
+				<div>
+					<figure class="logo">
+						<img src="../img/Logo Guatechapin.png" class="image-responsive" alt="">
+					</figure>
+				</div>
+				<div>
+					<ul class="no-margin no-padding list-none inline-block" style="vertical-align: middle;">
+						<li class="inline-block">  
+							<div>
+								<a href="carrito.html" id="btn-carrito">
+									<div class="align-center inline-block" style="vertical-align: middle;">
+										<span id="contador-compras" class="block">0</span>
+										<span class="icon-cart block" style="font-size: 1.5em;"></span>
+									</div>
+									<div class="align-center inline-block" style="vertical-align: middle;padding: 0 1em;">
+										<span>
+											Carrito
+										</span>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="inline-block">
+							<button id="btn-login">LOGIN</button>
+						</li>
+					</ul>
+					<div class="session hidden inline-block align-center" style="vertical-align: middle;margin-left: 1em;">
+						<h3 class="no-margin" id="username"></h3>
+						<button id="btn-logout">SALIR</button>
+					</div>
+				</div>
+			</section>
+			<section class="second">
+				<nav class="nav">
+					<ul class="no-margin no-padding list-none">
+						<li>
+							<a href="../index.html" class="no-underline">INICIO</a>
+						</li>
+						<li>
+							<a href="guatechapin.html" class="no-underline">QUIÉNES SOMOS</a>
+						</li>
+						<li>
+							<a href="colecciones.html" class="no-underline">PRODUCTOS</a>
+						</li>
+						<!-- <li>
+							<a href="catalogo.html" class="no-underline">CATÁLOGO</a>
+						</li> -->
+						<li>
+							<a href="dondeestamos.html" class="no-underline">DÓNDE ESTAMOS</a>
+						</li>
+						<li>
+							<a href="contacto.html" class="no-underline">CONTACTO</a>
+						</li>
+						<li>
+							<a href="mas.html" class="no-underline">MÁS</a>
+						</li>
+						<li>
+							<a href="#" class="no-underline">MIS COMPRAS</a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+		</header>
+		<section id="cart">
+			<div id="description-cart">
+				<h2 class="align-left">CARRITO DE COMPRAS</h2>
+				<ul class="list-none" id="list-cart">
+					<!-- 
+					<li>
+						<figure class="no-margin">
+							<img src="../img/productos/tejidos/ropa1.jpg" class="image-responsive" alt="">
+						</figure>
+						<div>
+							<h2 class="no-margin">Nexus 6</h2>
+							<h3>Nexus 6 Case, SUPCASE Google Nexus 6 Case [Unicorn Beetle Series] Premium Hybrid Bumper Case Cover for Motorola Nexus 6</h3>
+							<h3>Precio: <span>Q 450.00</span></h3>
+							<h3>Existencias: <span>450</span></h3>
+							<div>
+								<p>Cantidad:</p >
+								<input type="number" class="input-cantidad" value="1" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<figure class="no-margin">
+							<img src="../img/productos/tejidos/ropa1.jpg" class="image-responsive" alt="">
+						</figure>
+						<div>
+							<h2 class="no-margin">Nexus 6</h2>
+							<h3>Nexus 6 Case, SUPCASE Google Nexus 6 Case [Unicorn Beetle Series] Premium Hybrid Bumper Case Cover for Motorola Nexus 6</h3>
+							<h3>Q 450.00</h3>
+							<h3>Existencias: <span>450</span></h3>
+							<div>
+								<p >Cantidad:</p >
+								<input type="number" class="input-cantidad" value="1" />
+							</div>
+						</div>
+					</li> -->
+				</ul>
+			</div>
+			<div id="container-total-shop">
+				<h2>INFORMACIÓN DE PAGO</h2>
+				<div>
+					<h3>SUBTOTAL</h3>
+					<h2>Q<span id="subtotal"></span></h2>
+					<hr>
+				</div>
+				<div id="card-information">
+					<h2 class="align-center">INFORMACIÓN DE TARJETA DE CRÉDITO</h2>
+					<form name="form_card" id="form-card" action="">
+						<fieldset>
+							<label>Nombre de tarjeta</label>
+							<input type="text" name="name_card" required />
+						</fieldset>
+						<fieldset>
+							<label>Número de tarjeta</label>
+							<input type="number" name="number_card" required />
+						</fieldset>
+						<fieldset>
+							<div>
+								<label>Fecha de expiración</label>
+							</div>
+							<select name="day_card"| id="">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+							<select name="year_card" id="">
+								<option>2015</option>
+								<option>2016</option>
+								<option>2017</option>
+								<option>2018</option>
+								<option>2019</option>
+								<option>2020</option>
+								<option>2021</option>
+								<option>2022</option>
+								<option>2023</option>
+								<option>2024</option>
+								<option>2025</option>
+								<option>2026</option>
+								<option>2027</option>
+								<option>2028</option>
+								<option>2029</option>
+								<option>2030</option>
+							</select>
+						</fieldset>
+						<div class="align-center">
+							<button id="btn-pagar">PAGAR</button>
+							<div class="comprobation hidden">
+								<div class="progress">
+								</div>
+								<div><span style="font-weight: 300;">Comprobando...</span></div>
+							</div>
+							<div id="paypal-information">
+								<img src="../img/paypal.png" class="image-responsive" alt="">
+								<p class="no-margin">Trabajamos únicamente con servicio de PayPal</p>
+								<p class="no-margin">
+									Para mayor protección de su informacíon, sus datos son transferidos con cifrado de 256 bits
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div>
+				<h3 class="no-margin">CONTACTO</h3>
+				<p class="no-margin">20 Calle A 16-26 Zona 6 Proyecto 4-4, Ciudad de Guatemala, Guatemala, C.A.</p>
+			</div>
+			<div>
+				<h3 class="no-margin">SÍGUENOS EN:</h3>
+				<ul class="list-none">
+					<li>
+						Facebook
+					</li>
+					<li>
+						Twitter
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<script src="../js/app.js"></script>
+	<script src="../js/cart.js"></script>
+</body>
+</html>

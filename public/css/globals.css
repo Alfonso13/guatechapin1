@@ -104,6 +104,11 @@ body {
 .header section.first > div:last-child {
 	text-align: right;
 }
+.header section.first ul li button {
+	margin: 3px 0;
+	width: 100%;
+	border-radius: 4px;
+}
 .header section.first > div {
 	display: inline-block;
 	vertical-align: middle;
@@ -112,13 +117,9 @@ body {
 .logo {
 	margin: 0;
 	padding: 0;
+	width: 240px;
 }
-.logo div {
-	padding: 2em;
-	background: #03A9F4;
-	border-radius: 100%;
-	display: inline-block;
-}
+
 .nav {
 	background: #03A9F4;
 	margin-top: 0.5em;
@@ -130,9 +131,7 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 }
-.nav ul li:last-child {
-	margin-left: 14%;
-}
+
 .nav ul li:last-child input {
 	background: #F8F8F8;
 	border-radius: 4px;
@@ -173,11 +172,13 @@ body {
 	margin: 1em 3em;
 	border-bottom: 2px solid #AAA;
 }
+
 .articles article span {
 	font-weight: 300;
 	color: #999;
 	font-size: 1.3em;
 }
+
 .articles article button {
 	background: #03A9F4;
 	border: 0;
@@ -185,12 +186,14 @@ body {
 	cursor: pointer;
 	padding: 0.5em;
 }
+
 .articles article span, .collection .articles article button {
 	display: inline-block;
-	margin: 0.5em 1em 0 1em;
 }
+
 .articles article img {
 	max-width: 100%;
+	height: 330px;
 }
 
 .item-menu-selected {
@@ -198,11 +201,88 @@ body {
 	color: #03A9F4 !important;
 	border: 1px solid;
 }
+
 .no-visibility {
 	opacity: 0;
 	visibility: hidden;
 }
+
 .visibility {
   	opacity: 1;
   	visibility: visible;
+}
+
+#informacion > div > div {
+	width: 45%;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 1em 0;
+}
+
+#informacion button {
+	background: #03A9F4;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5em;	
+    margin-top: 1em;
+}
+
+.align-left {
+	text-align: left;
+}
+
+#btn-carrito {
+	background: #EAEAEA;
+	display: inline-block;
+	color: #333;
+	padding: 0.5em;
+	border-radius: 10px;
+	margin-right: 1em;
+}
+
+#username {
+	font-weight: 500;
+	font-size: 1.5em;
+}
+
+
+#btn-logout {
+	background: #F44336;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 0.2em;
+}
+
+#ModalLogin {
+	padding: 10% 36% !important;
+}
+#ModalLogin .modal-container {
+	height: 380px !important;
+}
+#ModalLogin fieldset {
+	width: 100% !important; 
+}
+#ModalLogin #btn-auth {
+	cursor: pointer;
+}
+#btn-login, #btn-register {
+	background: transparent;
+	border: none;
+	background:#03A9F4;
+	cursor: pointer;
+	color: #fff;
+	padding: 0.5em;
+	outline: none;
+}
+
+
+#productos h2 {
+	font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #696969;
+}
+#productos div > div {
+	margin-top: 1em;
 }

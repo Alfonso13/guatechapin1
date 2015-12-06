@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MIS COMPRAS</title>
+	<link rel="stylesheet" href="../css/globals.css" />
+	<!-- <link rel="stylesheet" href="css/index.css" /> -->
+	<link 
+		href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100,500,500italic,900italic,900,700' 
+		rel='stylesheet' 
+		type='text/css' />
+	<script src="../lib/jQuery/jquery.js"></script>
+	<script src="../lib/jQuery/serializeObject.js"></script>
+	<script src="../lib/jQuery/cookie.js"></script>
+</head>
+<body class="no-margin">
+	<div class="container">
+		<header class="header">
+			<section class="first">
+				<div>
+					<figure class="logo">
+						<img src="../img/Logo Guatechapin.png" class="image-responsive" alt="">
+					</figure>
+				</div>
+				<div>
+					<ul class="no-margin no-padding list-none inline-block" style="vertical-align: middle;">
+						<li class="inline-block" style="vertical-align: bottom;">
+							<div>
+								<a href="views/carrito.html" id="btn-carrito">
+									<div class="align-center inline-block" style="vertical-align: middle;">
+										<span id="contador-compras" class="block">0</span>
+										<span class="icon-cart block" style="font-size: 1.5em;"></span>
+									</div>
+									<div class="align-center inline-block" style="vertical-align: middle;padding: 0 1em;">
+										<span>
+											Carrito
+										</span>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="inline-block align-center" style="vertical-align: bottom;">
+							<div>
+								<button id="btn-login">INGRESAR</button>
+							</div>
+							<div>
+								<button id="btn-register">REGISTRARSE</button>
+							</div>
+						</li>
+					</ul>
+					<div class="session hidden inline-block align-center" style="vertical-align: middle;margin-left: 1em;">
+						<h3 class="no-margin" id="username"></h3>
+						<button id="btn-logout">SALIR</button>
+					</div>
+				</div>
+			</section>
+			<section class="second">
+				<nav class="nav">
+					<ul class="no-margin no-padding list-none">
+						<li>
+							<a href="../index.html" class="no-underline">INICIO</a>
+						</li>
+						<li>
+							<a href="guatechapin.html" class="no-underline">QUIÉNES SOMOS</a>
+						</li>
+						<li>
+							<a href="colecciones.html" class="no-underline">PRODUCTOS</a>
+						</li>
+						<!-- <li>
+							<a href="views/catalogo.html" class="no-underline">OFERTAS</a>
+						</li> -->
+						<li>
+							<a href="dondeestamos.html" class="no-underline">DÓNDE ESTAMOS</a>
+						</li>
+						<li>
+							<a href="contacto.html" class="no-underline">CONTACTO</a>
+						</li>
+						<li>
+							<a href="mas.html" class="no-underline">MÁS</a>
+						</li>
+						<li id="container-mis-compras" class="hidden">
+							<a href="compras.html" class="no-underline item-menu-selected">MIS COMPRAS</a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+		</header>
+		<section id="compras" class="align-left">
+			<h2>MIS COMPRAS</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Factura No.</th>
+						<th>Fecha</th>
+						<th>TOTAL</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+		</section>
+		<footer>
+			<div>
+				<h3 class="no-margin">CONTACTO</h3>
+				<p class="no-margin">20 Calle A 16-26 Zona 6 Proyecto 4-4, Ciudad de Guatemala, Guatemala, C.A.</p>
+			</div>
+			<div>
+				<h3 class="no-margin">SÍGUENOS EN:</h3>
+				<ul class="list-none">
+					<li>
+						Facebook
+					</li>
+					<li>
+						Twitter
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>	
+	<script src="../js/app.js"></script>
+</body>
+</html>

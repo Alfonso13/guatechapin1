@@ -8,6 +8,11 @@ var router = express.Router();
 var cookieParser = require('cookie-parser');
 var connection = mongoose.createConnection("mongodb://chapin:chapin2015@ds061954.mongolab.com:61954/guatechapin");
 
+
+var apiKey = "key-965b394996e9633c0bacd9d5a9d6f47d";
+var domain = "sandbox735f530aa31d40e9b346877f11a9b08c.mailgun.org";
+var mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain});
+
 autoIncrement.initialize(connection);
 
 var userSchema = new Schema({
@@ -29,14 +34,12 @@ var personSchema = new Schema({
 });
 
 /*
-
 */
 
 var billSchema = new Schema({
 	total: Number,
 	fecha: Date,
-	cliente: Number,
-	tarjeta: Number
+	cliente: Number
 });
 
 var detailBillSchema = new Schema({
@@ -144,17 +147,7 @@ router.get('/clothes', function clothes(req, res) {
 		else {
 			Offer.find({}, function offer(error, offers) {
 				if(!error) {
-					
-					var offers_articles = [];
 
-					clothes.forEach(function each(cloth, index) {
-						for(var i = 0 ; i < offers.length ; i++) {
-							if(offers[i].articulo == cloth._id) {
-								offers_articles.push({article: cloth, offer: offers[i]});
-								clothes.splice(index, 1);
-							}
-						}
-					});
 					var articles = {
 						tejidos: [],
 						cueros: [],
@@ -165,45 +158,118 @@ router.get('/clothes', function clothes(req, res) {
 					};
 					clothes.forEach(function each(cloth, index) {
 						if(cloth.categoria == 0) { //Si es un tejido
-							if(articles.tejidos.length != 3) {
-								articles.tejidos.push(cloth);
-							}
+							articles.tejidos.push(cloth);
 						}
 						else if(cloth.categoria == 1) { //Si es un cuero
-							if(articles.cueros.length != 3) {
-								articles.cueros.push(cloth);
-							}
+							articles.cueros.push(cloth);
 						}
 						else if(cloth.categoria == 2) { //si es un mostacilla
-							if(articles.mostacilla.length != 3) {
-								articles.mostacilla.push(cloth);
-							}
+							articles.mostacilla.push(cloth);
 						}
 						else if(cloth.categoria == 3) { //Si es un bolso
-							if(articles.bolsos.length != 3) {
-								articles.bolsos.push(cloth);
-							}
+							articles.bolsos.push(cloth);
 						}
 						else if(cloth.categoria == 4) { //Si es un cartera
-							if(articles.carteras.length != 3) {
-								articles.carteras.push(cloth);
-							}
+							articles.carteras.push(cloth);
 						}
 						else if(cloth.categoria == 5) { //Si es una ropa
-							if(articles.ropas.length != 3) {
-								articles.ropas.push(cloth);
-							}
+							articles.ropas.push(cloth);
 						}
 					});
 
 					res.status(200).json({
-						clothes: articles,
-						offers: offers_articles
+						clothes: articles
 					});
 				}
 			});
 		}
 	});
+});
+
+router.get('/buy/:information', function buy(req, res) {
+	var params = JSON.parse(req.params.information);
+	var card = params.card;
+	var products = params.products;
+	var date = params.date.join("/");
+	var user = params.user;
+	var email = params.email;
+	var name = params.name;
+
+	var total = 0;
+
+	products.forEach(function each(product, index) {
+		total += (Number(product.product.precio) * Number(product.product.cantidad));
+	});
+
+
+
+	var bill = {
+		total: total,
+		fecha: date,
+		cliente: user
+	};
+	
+
+	var newBill = new Bill(bill);
+
+	newBill.save(function e(error){
+		if(!error) {
+			Bill.find({}).sort({_id: 'desc'}).limit(1).exec(function a(error, docs){
+				if(!error) {
+					var counter = 0;
+					var detail_bill = [];
+					products.forEach(function each(product, index) {
+						counter += 1;
+						detail_bill.push('<tr><td style="padding:10px 16px;">'+ product.product.nombre +'</td> <td style="padding:10px 16px;">'+ product.product.cantidad +'</td><td style="padding:10px 16px;">Q. ' + product.product.precio + '</td><td style="padding:10px 16px;">Q. '+ (Number(product.product.precio) * Number(product.product.cantidad)) +'</td></tr>');
+						var newDetailBill = new DetailBill({
+							factura: docs[0]._id ,
+							articulo: product.product._id,
+							cantidad: product.product.cantidad,
+							precioVenta: product.product.precio
+						});
+						newDetailBill.save(function save(error) {
+							if(!error) {
+								Article.findOne({_id: product.product._id}, function search(error, product_search){
+									if(!error) {
+										var stock = product_search.existencia;
+										var actual_stock = product_search.existencia - product.product.cantidad;
+
+										Article.findOneAndUpdate({_id: product.product._id}, {$set: {existencia: actual_stock}}, {}, function c(error) {
+											if(!error) {
+												if(counter == products.length) {
+													var html_email = '<div style="background:#eee;padding:16px;text-align:left;font-family:;"><h1 style="color:#03A9F4;">GUATECHAPIN</h1> <h3 style="font-weight:300;">Guatechapin te felicita por haber confiado en nosotros al adquirir nuestros productos de alta calidad.  Desde ahora eres parte de la familia de Guatechapin.</h3> <hr> <div> <h3 style="font-size:18px;color:#333;">INFORMACIÓN DE FACTURACIÓN</h3> <div style="border-left:2px solid;padding-left:16px;"> <h2 style="font-size:16px;font-weight:300;">FACTURA No. <span>21</span></h2><h2 style="font-size:16px;font-weight:300;">NOMBRE: <span>Marcia Arevalo</span></h2><h2 style="font-size:16px;font-weight:300;">FECHA: <span>5/12/2015</span></h2> <h2 style="font-size:16px;font-weight:300;">TOTAL: <span>Q. 100</span></h2> </div> <h3 style="font-weight:700;color:#444;">DETALLE</h3> <table style="text-align:center;"> <thead> <tr> <th style="padding:10px 16px;">Producto</th> <th style="padding:10px 16px;">Cantidad</th> <th style="padding:10px 16px;">Precio</th> <th style="padding:10px 16px;">Subtotal</th> </tr> </thead> <tbody> ' + detail_bill.join("") + '</tbody> </table> </div> </div>';
+													var data = {
+														from: "Guatechapin <mailgun@sandbox735f530aa31d40e9b346877f11a9b08c.mailgun.org>",
+														to: 'alfonso-13@live.com', 
+														subject: 'Información de Facturación',
+														html: html_email
+													};
+													mailgun.messages().send(data, function l(error, body) {
+														if(!error) {
+															res.json({
+																message: 'success'
+															});
+														}
+														else {
+															res.json({
+																message: 'error'
+															});
+														}
+													});
+												}
+											}
+										});
+									}
+								});
+							}
+						});
+					});
+				}
+			});
+		}
+	});
+
+
 });
 
 app.listen(process.env.PORT || 5000);

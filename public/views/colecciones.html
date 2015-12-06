@@ -4,32 +4,85 @@
 	<meta charset="UTF-8">
 	<title>Catalogo</title>
 	<link rel="stylesheet" href="../css/globals.css" />
-	<link rel="stylesheet" href="../css/catalogo.css" />
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100,500,500italic,900italic,900,700' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="../css/modals.css">
+	<link 
+		href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100,500,500italic,900italic,900,700' 
+		rel='stylesheet' 
+		type='text/css' />
+	<script src="../lib/jQuery/jquery.js"></script>
+	<script src="../lib/jQuery/serializeObject.js"></script>
+	<script src="../lib/jQuery/cookie.js"></script>
 </head>
 <body class="no-margin">
+	<section class="modal no-visibility" id="ModalLogin" >
+		<div class="modal-container relative">
+			<a class="close">X</a>
+			<div id="titulo_cotizacion">
+				<h3 class="no-margin">AUTENTICACIÓN</h3>
+			</div>
+			<div id="cotizacion" class="align-center">
+				<form id="form-auth" name="form-auth">
+					<div id="container-form-service">
+						<fieldset class="block">
+							<label>Usuario</label>
+							<input type="text" name="nombre" required />
+						</fieldset>
+						<fieldset class="block">
+							<label>Contraseña</label>
+							<input type="password" name="password" required />
+						</fieldset>
+					</div>
+					<div class="align-center no-margin container-buttons">
+						<button id="btn-auth">ENTRAR</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="modal no-visibility" id="ModalInformacion" >
+		<div class="modal-container relative">
+			<a class="close">X</a>
+			<div id="titulo_cotizacion">
+				<h3 class="no-margin">INFORMACIÓN</h3>
+			</div>
+			<div id="informacion" class="align-center"></div>
+		</div>
+	</section>
 	<div class="container">
 		<header class="header">
 			<section class="first">
 				<div>
 					<figure class="logo">
-						<div></div>
-						<figcaption>
-							<small>Orgullosos de lo nuestro!</small>
-						</figcaption>
+						<img src="../img/Logo Guatechapin.png" class="image-responsive" alt="">
 					</figure>
 				</div>
 				<div>
-					<ul class="no-margin no-padding list-none">
-						<li>
+					<ul class="no-margin no-padding list-none inline-block" style="vertical-align: middle;">
+						<li class="inline-block">  
 							<div>
-								<button>COMPRAR</button>
+								<a href="carrito.html" id="btn-carrito">
+									<div class="align-center inline-block" style="vertical-align: middle;">
+										<span id="contador-compras" class="block">0</span>
+										<span class="icon-cart block" style="font-size: 1.5em;"></span>
+									</div>
+									<div class="align-center inline-block" style="vertical-align: middle;padding: 0 1em;">
+										<span>
+											Carrito
+										</span>
+									</div>
+								</a>
 							</div>
 						</li>
-						<li>
-							<a href="#">LOGIN</a>
+						<li class="inline-block align-center" style="vertical-align: middle;">
+							<div>
+								<button id="btn-login">INGRESAR</button>
+							</div>
 						</li>
 					</ul>
+					<div class="session hidden inline-block align-center" style="vertical-align: middle;margin-left: 1em;">
+						<h3 class="no-margin" id="username"></h3>
+						<button id="btn-logout">SALIR</button>
+					</div>
 				</div>
 			</section>
 			<section class="second">
@@ -42,10 +95,7 @@
 							<a href="guatechapin.html" class="no-underline">QUIÉNES SOMOS</a>
 						</li>
 						<li>
-							<a href="colecciones.html" class="no-underline item-menu-selected">COLECCIONES</a>
-						</li>
-						<li>
-							<a href="catalogo.html" class="no-underline">CATÁLOGO</a>
+							<a href="colecciones.html" class="no-underline item-menu-selected">PRODUCTOS</a>
 						</li>
 						<li>
 							<a href="dondeestamos.html" class="no-underline">DÓNDE ESTAMOS</a>
@@ -56,20 +106,19 @@
 						<li>
 							<a href="mas.html" class="no-underline">MÁS</a>
 						</li>
-						<li>
-							<form>
-								<input type="text" placeholder="Buscar..." />
-							</form>
+						<li id="container-mis-compras" class="hidden">
+							<a href="compras.html" class="no-underline">MIS COMPRAS</a>
 						</li>
 					</ul>
 				</nav>
 			</section>
 		</header>
-		<section>
+		<section id="productos">
 			<div class="collection">
 				<h2>TEJIDOS</h2>
-				<div>
+				<div id="tejidos_productos">
 					<div class="articles">
+						<!-- 
 						<article>
 							<figure>
 								<img src="../img/ropa.jpg" alt="">
@@ -102,9 +151,9 @@
 									</div>
 								</figcaption>
 							</figure>
-						</article>
+						</article> -->
 					</div>
-					<div class="articles">
+					<!-- <div class="articles">
 						<article>
 							<figure>
 								<img src="../img/ropa.jpg" alt="">
@@ -138,14 +187,14 @@
 								</figcaption>
 							</figure>
 						</article>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="collection">
 				<h2>CUEROS</h2>
-				<div>
+				<div id="cueros_products">
 					<div class="articles">
-						<article>
+						<!-- <article>
 							<figure>
 								<img src="../img/ropa.jpg" alt="">
 								<figcaption>
@@ -177,9 +226,9 @@
 									</div>
 								</figcaption>
 							</figure>
-						</article>
+						</article> -->
 					</div>
-					<div class="articles">
+					<!-- <div class="articles">
 						<article>
 							<figure>
 								<img src="../img/ropa.jpg" alt="">
@@ -213,14 +262,14 @@
 								</figcaption>
 							</figure>
 						</article>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="collection">
 				<h2>MOSTACILLA</h2>
-				<div>
+				<div id="mostacilla_products">
 					<div class="articles">
-						<article>
+						<!-- <article>
 							<figure>
 								<img src="../img/ropa.jpg" alt="">
 								<figcaption>
@@ -252,10 +301,50 @@
 									</div>
 								</figcaption>
 							</figure>
-						</article>
+						</article> -->
 					</div>
+					<!-- <div class="articles">
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+					</div> -->
+				</div>
+			</div>
+			<div class="collection">
+				<h2>BOLSOS</h2>
+				<div id="bolsos_products">
 					<div class="articles">
-						<article>
+						<!-- <article>
 							<figure>
 								<img src="../img/ropa.jpg" alt="">
 								<figcaption>
@@ -287,8 +376,193 @@
 									</div>
 								</figcaption>
 							</figure>
-						</article>
+						</article> -->
 					</div>
+					<!-- <div class="articles">
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+					</div> -->
+				</div>
+			</div>
+			<div class="collection">
+				<h2>CARTERAS</h2>
+				<div id="cartas_products">
+					<div class="articles">
+						<!-- <article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article> -->
+					</div>
+					<!-- <div class="articles">
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+					</div> -->
+				</div>
+			</div>
+			<div class="collection">
+				<h2>ROPAS</h2>
+				<div id="ropas_products">
+					<div class="articles">
+						<!-- <article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article> -->
+					</div>
+					<!-- <div class="articles">
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+						<article>
+							<figure>
+								<img src="../img/ropa.jpg" alt="">
+								<figcaption>
+									<div>
+										<span>Ropa típica</span>
+										<button>COMPRAR</button>
+									</div>
+								</figcaption>
+							</figure>
+						</article>
+					</div> -->
 				</div>
 			</div>
 		</section>
@@ -310,5 +584,7 @@
 			</div>
 		</footer>
 	</div>
+	<script src="../js/app.js"></script>
+	<script src="../js/productos.js"></script>
 </body>
 </html>

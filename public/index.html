@@ -40,45 +40,54 @@
 			</div>
 		</div>
 	</section>
+	<section class="modal no-visibility" id="ModalInformacion" >
+		<div class="modal-container relative">
+			<a class="close">X</a>
+			<div id="titulo_cotizacion">
+				<h3 class="no-margin">INFORMACIÓN</h3>
+			</div>
+			<div id="informacion" class="align-center"></div>
+		</div>
+	</section>
 	<style>
-
-		#ModalLogin {
-			padding: 10% 36% !important;
-		}
-		#ModalLogin .modal-container {
-			height: 380px !important;
-		}
-		#ModalLogin fieldset {
-			width: 100% !important; 
-		}
-		#ModalLogin #btn-auth {
-			cursor: pointer;
-		}
+		
 	</style>
 	<div class="container">
 		<header class="header">
 			<section class="first">
 				<div>
 					<figure class="logo">
-						<div></div>
-						<figcaption>
-							<small>Orgullosos de lo nuestro!</small>
-						</figcaption>
+						<img src="img/Logo Guatechapin.png" class="image-responsive" alt="">
 					</figure>
 				</div>
 				<div>
-					<ul class="no-margin no-padding list-none">
-						<li>
+					<ul class="no-margin no-padding list-none inline-block" style="vertical-align: middle;">
+						<li class="inline-block" style="vertical-align: middle;">
 							<div>
-								<span class="icon-cart"></span>
-								<button>COMPRAR</button>
+								<!-- href="views/carrito.html" -->
+								<a href="#" id="btn-carrito">
+									<div class="align-center inline-block" style="vertical-align: middle;">
+										<span id="contador-compras" class="block">0</span>
+										<span class="icon-cart block" style="font-size: 1.5em;"></span>
+									</div>
+									<div class="align-center inline-block" style="vertical-align: middle;padding: 0 1em;">
+										<span>
+											Carrito
+										</span>
+									</div>
+								</a>
 							</div>
 						</li>
-						<li>
-							<button id="btn-login">LOGIN</button>
+						<li class="inline-block align-center" style="vertical-align: middle;">
+							<div>
+								<button id="btn-login">INGRESAR</button>
+							</div>
+							<!-- <div>
+								<button id="btn-register">REGISTRARSE</button>
+							</div> -->
 						</li>
 					</ul>
-					<div class="session hidden">
+					<div class="session hidden inline-block align-center" style="vertical-align: middle;margin-left: 1em;">
 						<h3 class="no-margin" id="username"></h3>
 						<button id="btn-logout">SALIR</button>
 					</div>
@@ -94,10 +103,7 @@
 							<a href="views/guatechapin.html" class="no-underline">QUIÉNES SOMOS</a>
 						</li>
 						<li>
-							<a href="views/colecciones.html" class="no-underline">COLECCIONES</a>
-						</li>
-						<li>
-							<a href="views/catalogo.html" class="no-underline">CATÁLOGO</a>
+							<a href="views/colecciones.html" class="no-underline">PRODUCTOS</a>
 						</li>
 						<li>
 							<a href="views/dondeestamos.html" class="no-underline">DÓNDE ESTAMOS</a>
@@ -108,10 +114,8 @@
 						<li>
 							<a href="views/mas.html" class="no-underline">MÁS</a>
 						</li>
-						<li>
-							<form>
-								<input type="text" placeholder="Buscar..." />
-							</form>
+						<li id="container-mis-compras" class="hidden">
+							<a href="views/compras.html" class="no-underline">MIS COMPRAS</a>
 						</li>
 					</ul>
 				</nav>
@@ -119,15 +123,7 @@
 		</header>
 		<section id="gallery">
 			<div id="offer">
-				<!-- <figure>
-					<img src="img/ropa.jpg" class="image-responsive" alt="">
-				</figure><div id="description-gallery">
-					<h2 class="no-margin">15%</h2>
-					<h3 class="no-margin">DESCUENTO <br /> NAVIDEÑO</h3>
-					<div>
-						<button>COMPRAR</button>
-					</div>
-				</div> -->
+				
 			</div>
 		</section>
 		<section id="clothes">

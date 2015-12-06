@@ -1,0 +1,167 @@
+#cart #description-cart {
+	text-align: left;
+	display: inline-block;
+	width: 60%;
+}
+#cart #description-cart ul li {
+/* 	margin: 2em 0; */
+	border-bottom: 1px solid;
+	padding: 2em 0;
+	margin-right: 2em;
+}
+#cart #description-cart ul li figure {
+	width: 22%;
+}
+#cart #description-cart ul li > div {
+	width: 75%;
+	margin-left: 0.5em;
+}
+#cart #description-cart ul li figure, #cart #description-cart ul li > div {
+	display: inline-block;
+	vertical-align: top;
+}
+#cart #description-cart ul li h2 {
+	color: #444;
+}
+#cart #description-cart ul li h3:nth-child(2) {
+	font-weight: 300;
+	font-size: 0.95em;
+	margin: 0.1em 0 0 0;
+}
+#cart #description-cart ul li h3:nth-child(3) {
+	color: #333;
+	font-weight: 400;
+	margin: 0.5em 0 0 0;
+	font-size: 0.95em;
+}
+#cart #description-cart ul li h3:nth-child(3) span {
+	font-weight: 800;
+	color: #333;
+}
+#cart #description-cart ul li h3:nth-child(4) {
+	margin: 0.5em 0;
+	font-weight: 400;
+	font-size: 0.95em;
+}
+#cart #description-cart ul li h3:nth-child(4) span {
+	font-weight: 700;
+	color: #333;
+}
+#cart #description-cart ul li > div > div {
+	margin-top: 1em;
+}
+#cart #description-cart ul li > div > div p {
+	margin: 0;
+	font-weight: 300;
+}
+
+#cart #description-cart ul li > div > div input {
+	padding: 0.8em 0.5em;
+	background: #e0e0e0;
+	text-align: center;
+	border: none;
+	outline: none;
+	width: 55px;
+}
+
+#cart #container-total-shop {
+	width: 28%;
+	color: #333;
+	background: #E9E9E9;
+	border: 1px solid #C7C7C7;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 5.5em;
+	padding: 2em 0;
+	margin-bottom: 10em;
+}
+
+#container-total-shop h3 {
+	font-weight: 400;
+	margin: 0;
+	font-size: 1em;
+}
+#container-total-shop > h2 {
+	font-weight: 600;
+	margin: 0 0 1em 0;
+}
+#container-total-shop > div h2 {
+	margin: 0px 0 10px 0;
+	font-size: 2.5em;
+}
+#container-total-shop > div button {
+	background: #03A9F4;
+	border: none;
+	color: #fff;
+	outline: none;
+	padding: 0.8em;
+	cursor: pointer;
+	margin-top: 1em;
+}
+#container-total-shop #card-information {
+	padding: 1em;
+	text-align: left;
+}
+#container-total-shop #card-information h2 {
+	font-size: 1.2em;
+}
+#container-total-shop #card-information form {
+	padding: 0 2em;
+}
+#container-total-shop #card-information form fieldset {
+	margin: 0;
+}
+#container-total-shop #card-information form fieldset label, #container-total-shop #card-information form fieldset input {
+	display: block;	
+	width: 100%;
+}
+#container-total-shop #card-information form fieldset input, #container-total-shop #card-information form fieldset select {
+	background: #FFF;
+	border: 1px solid #CACACA;
+	margin: 0.5em 0 0 0 ;
+	padding: 0.8em;
+	color: #333;
+	outline: none;
+}
+#container-total-shop #card-information form fieldset select {
+	cursor: pointer;
+}
+
+.progress {
+	width: 0%;
+	margin-top: 1em;
+	height: 6px;
+	background: #03A9F4;
+}
+#ModalPago {
+	padding: 9% 34% !important;
+}
+#ModalPago .modal-container {
+	height: 370px !important;
+}
+
+#paypal-information {
+	margin-top: 3em;
+}
+#paypal-information p {
+	font-weight: 300;
+	font-size: 0.95em;
+}
+#btn-end-pay {
+	background: #03A9F4;
+	border: none;
+	color: #fff;
+	outline: none;
+	padding: 0.8em;
+	cursor: pointer;
+	margin-top: 1em;
+}
+.btn-delete-item {
+	background: #F44336;
+	color: #fff;
+	font-size: 0.8em;
+	padding: 0.5em;
+	position: absolute;
+	right: 3em;
+	text-decoration: none;
+}
