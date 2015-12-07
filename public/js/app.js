@@ -288,7 +288,9 @@ function init() {
 		$.removeCookie("persona");
 		$.removeCookie("user");
 		localStorage.clear();
-		window.location.reload();
+		setTimeout(function () {
+			window.location.reload();
+		}, 1000);
 	});
 
 };

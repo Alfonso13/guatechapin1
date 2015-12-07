@@ -307,3 +307,12 @@ body {
 #productos div > div {
 	margin-top: 1em;
 }
+
+#about {
+	margin-top: 1em;
+}
+#about article {
+	background: #F8F8F8;
+	margin-bottom: 2em;
+	padding: 2em !important;
+}
