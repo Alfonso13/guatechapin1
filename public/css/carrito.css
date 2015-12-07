@@ -3,10 +3,10 @@
 	display: inline-block;
 	width: 60%;
 }
-#cart #description-cart ul li {
-/* 	margin: 2em 0; */
+#cart #description-cart ul li {	
+	background: #fff;
+    padding: 1em;
 	border-bottom: 1px solid;
-	padding: 2em 0;
 	margin-right: 2em;
 }
 #cart #description-cart ul li figure {

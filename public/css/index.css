@@ -1,5 +1,4 @@
 #gallery  {
-	margin: 2em 0;
 	position: relative;
 }
 #gallery  div figure {
@@ -45,10 +44,19 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+#clothes {
+	background-image: url("../img/fondo.jpg");
+	padding: 1em;
+}
+#donde {
+	background-image: url("../img/fondo.jpg");
+	padding: 1em;	
+}
 #clothes h2 {
 	font-size: 2.5em;
-	margin-bottom: 0.5em;
-	color: #696969;
+	margin: 0;
+	color: #fff;
+	text-shadow: 1px 1px 3px #444;
 }
 #clothes article div > div{
 	margin-top: 1em;
