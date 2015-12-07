@@ -98,6 +98,10 @@ body {
 	width: 90%;
 	display: inline-block;
 }
+.header {
+	background: #EEEEEE;
+	padding: 1em 0 0 0;
+}
 .header section.first > div:first-child {
 	text-align: left;
 }
@@ -123,6 +127,7 @@ body {
 .nav {
 	background: #03A9F4;
 	margin-top: 0.5em;
+	box-shadow: 2px 2px 9px #A2A2A2;
 }	
 .nav ul {
 	text-align: left;
@@ -132,24 +137,23 @@ body {
 	vertical-align: middle;
 }
 
-.nav ul li:last-child input {
-	background: #F8F8F8;
-	border-radius: 4px;
-	border: 0;
-	outline: none;
-	padding: 0.5em;
-}
 .nav ul li a {
 	color: #fff;
 	padding: 0.8em;
 	display: inline-block;
 	font-weight: 300;
 	font-size: 0.99em;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
-
+.nav ul li a:not(.item-menu-selected):hover {
+	background: #0288D1;
+}
 .container > footer {
 	background: #E0E0E0;
 	padding: 1em 0;
+	margin-top: 3em;
 }
 .container > footer > div {
 	display: inline-block;
@@ -170,7 +174,9 @@ body {
 	width: 22%;
 	padding-bottom: 1em;
 	margin: 1em 3em;
-	border-bottom: 2px solid #AAA;
+	/* border-bottom: 2px solid #AAA; */
+	box-shadow: 2px 2px 8px #B0B0B0;
+	padding: 1em;
 }
 
 .articles article span {
@@ -184,7 +190,17 @@ body {
 	border: 0;
 	color: #fff;
 	cursor: pointer;
-	padding: 0.5em;
+	padding: 0.8em;
+	outline: none;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-radius: 4px;
+	margin: 0 4px;
+}
+
+.articles article button:hover {
+	background: #0288D1;
 }
 
 .articles article span, .collection .articles article button {
@@ -233,14 +249,19 @@ body {
 }
 
 #btn-carrito {
-	background: #EAEAEA;
+	background: #9E9E9E;
 	display: inline-block;
-	color: #333;
+	color: #fff;
 	padding: 0.5em;
 	border-radius: 10px;
 	margin-right: 1em;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
-
+#btn-carrito:hover {
+	background: #7F7F7F;
+}
 #username {
 	font-weight: 500;
 	font-size: 1.5em;
